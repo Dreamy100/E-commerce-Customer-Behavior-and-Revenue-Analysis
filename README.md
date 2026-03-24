@@ -92,7 +92,7 @@ Ecommerce-Market-Funnel-Analysis/
 5. **Verify Data**
 
    ```sql
-   SELECT event_time FROM ecommerce_analysis.events_data LIMIT 10;
+   SELECT event_time FROM ecommerce_funnel_analysis.events_data LIMIT 10;
    ```
 
 6. **Data Cleaning**
@@ -106,7 +106,7 @@ Ecommerce-Market-Funnel-Analysis/
 ## Data Preparation
 
 ```sql
-CREATE OR REPLACE TABLE ecommerce_analysis.clean_data AS
+CREATE OR REPLACE TABLE ecommerce_funnel_analysis.clean_data AS
 SELECT
   event_time,
   DATE(event_time) AS event_date,
@@ -117,7 +117,7 @@ SELECT
   brand,
   SAFE_CAST(price AS FLOAT64) AS price,
   user_id
-FROM ecommerce_analysis.events_data
+FROM ecommerce_funnel_analysis.events_data
 WHERE user_id IS NOT NULL
   AND order_id IS NOT NULL
   AND price IS NOT NULL
@@ -289,10 +289,10 @@ This project demonstrates:
 
 ## Key Takeaway
 
-> This project reflects real-world data analyst responsibilities — combining SQL, cloud tools, and business thinking to drive data-informed decisions.
+This project reflects real-world data analyst responsibilities — combining SQL, cloud tools, and business thinking to drive data-informed decisions.
 
 ---
 
 ## License
 
-> This project is licensed under the terms of the LICENSE file included in this repository
+This project is licensed under the terms of the LICENSE file included in this repository
